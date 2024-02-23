@@ -20,6 +20,7 @@ class Program():
                 time.sleep(0.3)
                 StaticValues.BLOCK = True
                 self.Block()
+                break
 
     def Block(self):
         while StaticValues.BLOCK:
@@ -34,6 +35,6 @@ class Program():
                 break
             else:
                 StaticValues.BLOCK_TIME -= 1
-        self.Login()
+        Program()
 Program()
 
