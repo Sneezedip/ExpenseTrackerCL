@@ -1,5 +1,7 @@
 # Expense Tracker
 
+## CURRENT VERSION - 1.0.0
+
 ## <a id="Changelog"></a>📝・Changelog
 <details>
   <summary>Version 1</summary>
