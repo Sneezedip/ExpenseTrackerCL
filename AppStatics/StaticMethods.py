@@ -1,3 +1,4 @@
+from colorama import Fore,Style
 class StaticMethods():
     @staticmethod
     def ValidInteger(prompt:str,max:int,min=0,notify=False,notify_message="Out Limits",notify_Exception=False,notify_message_Exception="Only Integer Accepted."):
@@ -13,11 +14,11 @@ class StaticMethods():
             except ValueError:
                 if notify_Exception: print(notify_message_Exception)
     @staticmethod
-    def Centered(phrase):
+    def Centered(phrase,color="WHITE"):
         """
         Returns a phrase in the middle of the shell.
         """
-        return "{:^50}".format(phrase)
+        return "{}{:^50}{}".format(getattr(Fore,color),phrase,Style.RESET_ALL)
     def CustomPosition(position:int,phrase):
         """
         Returns a phrase in any X position given.
