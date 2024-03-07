@@ -19,6 +19,10 @@
         - Changed blocked from 6 chances to 5.
         - Current Month expenses working!
 
+</details>
+
+<details>
+  
   <summary>Version 1</summary>
 
     [Version 1.1.0]
@@ -36,6 +40,5 @@
         - Added Blocking system for when user inserts wrong pin 6 times in a row. Each time user is blocked, the blocking time doubles.
         - Added Static Methods for code optimization
         - Configuration File located in %temp% "FileManagement.cfg"
-    
-
+        
 </details>
