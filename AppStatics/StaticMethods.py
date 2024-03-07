@@ -12,3 +12,14 @@ class StaticMethods():
                     if notify: print(notify_message)
             except ValueError:
                 if notify_Exception: print(notify_message_Exception)
+    @staticmethod
+    def Centered(phrase):
+        """
+        Returns a phrase in the middle of the shell.
+        """
+        return "{:^50}".format(phrase)
+    def CustomPosition(position:int,phrase):
+        """
+        Returns a phrase in any X position given.
+        """
+        return "{:^{}}".format(phrase,position)
