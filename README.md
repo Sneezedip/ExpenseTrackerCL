@@ -5,6 +5,7 @@
 ## <a id="Changelog"></a>📝・Changelog
 <details>
   <summary>Version 1</summary>
+  
     [Version 1.1.0]
         - Created new Classes for code optimization.
         - If a user doesn't have an account, the program will ask for a new PIN
