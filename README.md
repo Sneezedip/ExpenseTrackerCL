@@ -1,11 +1,17 @@
 # Expense Tracker
 
-## CURRENT VERSION - 2.0.0
+## CURRENT VERSION - 2.1.0
 
 ## <a id="Changelog"></a>📝・Changelog
 <details>
 
   <summary>Version 2</summary>
+
+    [Version 2.1.0]
+        - Fixed a weird bug with f" strings in windows 10.
+        - Changed the way Month expenses work.
+        - Now Budget gets changed when a new expense is made.
+        - Created a confirmation screen when the expense is higher than the budget remaining.
 
     [Version 2.0.0]
         - Fixed a budget bug where user could put a budget higher than the balance.

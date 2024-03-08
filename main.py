@@ -16,7 +16,7 @@ class Program():
             os.system("cls")
             print(f"""
             {StaticMethods.Centered(f"{Fore.BLUE}Balance: "+MONEY_COLOR+Management.GetInfo("MONEY")+"€")}
-            {StaticMethods.Centered(f"{Fore.BLUE}This Month: "+CURRENT_COLOR+Management.GetInfo("CURRENT_MONTH")+"€")}{Style.RESET_ALL}
+            {StaticMethods.Centered(f"{Fore.BLUE}This Month Expenses: "+CURRENT_COLOR+Management.GetInfo("CURRENT_MONTH")+"€")}{Style.RESET_ALL}
             {StaticMethods.Centered(f"{Fore.BLUE}Budget: {Style.RESET_ALL}"+Management.GetInfo("BUDGET")+"€")}
 
             {StaticMethods.Centered("[1] - View Account Settings","RED")}
@@ -112,9 +112,9 @@ class Program():
         print(f"""
         {StaticMethods.Centered("Account Settings")}
         \n
-        {StaticMethods.Centered(f"[1] - Add Balance | CURRENT: {Management.GetInfo("MONEY")}€")}
-        {StaticMethods.Centered(f"[2] - Set Budget  | CURRENT: {Management.GetInfo("BUDGET")}€ ")}
-        {StaticMethods.Centered(f"[3] - Clear Purchase History | CURRENT NUMBER OF ITEMS: {len(Management.GetInfo("HISTORY").split(","))-1} ")}
+        {StaticMethods.Centered("[1] - Add Balance | CURRENT:"+ Management.GetInfo("MONEY")+"€")}
+        {StaticMethods.Centered("[2] - Set Budget  | CURRENT:"+ Management.GetInfo("BUDGET")+"€")}
+        {StaticMethods.Centered("[3] - Clear Purchase History | CURRENT NUMBER OF ITEMS:"+ str(len(Management.GetInfo("HISTORY").split(","))-1))}
         \n
         {StaticMethods.Centered(f"[4] - Change PIN")}
         {StaticMethods.Centered(f"[5] - Return to Menu")}

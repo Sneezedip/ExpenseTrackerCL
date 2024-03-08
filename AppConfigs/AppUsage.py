@@ -15,17 +15,35 @@ class Usage():
                     break
             with open(Management.CONFIG_LOCATION, 'w') as file:
                 file.writelines(lines)
+        def Confirmation():
+            print("""
+            Your expense is higher than the current balance.
+                  Do you want to continue?
+                  
+            [1] - Yes
+            [2] - No
+            """)
+            CHOICE = StaticMethods.ValidInteger("-> ",2,1,notify_Exception=True)
+
+            match CHOICE:
+                case 1: return True
+                case 2: return False           
         if not expense:
             amount = StaticMethods.ValidInteger("How much would you like to {0}?\n-> ".format("remove" if not AddBalance else "add"),500000)
             if AddBalance:
                 Apply(int(Management.GetInfo('MONEY')) + amount)
-                Apply(int(Management.GetInfo('CURRENT_MONTH')) + amount,type="CURRENT_MONTH")
             else:
                 Apply(int(Management.GetInfo('MONEY')) - amount)
             return
         else:
+            if expense_value > int(Management.GetInfo('BUDGET')):
+                if Confirmation():
+                    pass
+                else:
+                    return
             Apply(int(Management.GetInfo('MONEY')) - expense_value)
             Apply(int(Management.GetInfo('CURRENT_MONTH')) - expense_value,type="CURRENT_MONTH")
+            Apply(int(Management.GetInfo('BUDGET')) - expense_value,type="BUDGET")
     def SetBudget(Remove=False):
         if int(Management.GetInfo("MONEY")) <=0:
             os.system("cls")
@@ -36,7 +54,7 @@ class Usage():
             lines = file.readlines()
         for i, line in enumerate(lines):
             if 'BUDGET' in line:
-                lines[i] = f"BUDGET:{StaticMethods.ValidInteger("How much would you like to set to?\n-> ",int(Management.GetInfo("MONEY")),notify=True,notify_message="Budget can't be higher than the balance")}\n"
+                lines[i] = "BUDGET:"+str(StaticMethods.ValidInteger("How much would you like to set to?\n-> ",int(Management.GetInfo("MONEY")),notify=True,notify_message="Budget can't be higher than the balance"))+"\n"
                 break
         with open(Management.CONFIG_LOCATION, 'w') as file:
             file.writelines(lines)
@@ -46,7 +64,7 @@ class Usage():
         for i, line in enumerate(lines):
             if 'HISTORY' in line:
                 old = lines[i].split(":")[1]
-                lines[i] = f"HISTORY:{Usage.Global.History+","+old}"
+                lines[i] = str("HISTORY:"+Usage.Global.History+","+old)
                 break
         with open(Management.CONFIG_LOCATION, 'w') as file:
             file.writelines(lines)
